@@ -19,11 +19,12 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 STATIC_DIR = os.path.join(BASE_DIR,'static')
 MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1(sv^365fa#5c4926wh#v=em-$i9871e^1qnw6lua2l8bi+_!o'
+SECRET_KEY = 'django-insecure-6ezlx9c758fyxqszyinn@#ojyz5d2xlbhtzwp$#jx)f!kon+9e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello_world'
+    'hello_world',
+    'book'
 ]
 
 MIDDLEWARE = [
@@ -131,5 +133,3 @@ LOGIN_URL = '/hello_world/user_login/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

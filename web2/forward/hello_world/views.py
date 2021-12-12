@@ -28,9 +28,9 @@ def register(request):
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileInfoForm(data=request.POST)
         if user_form.is_valid() and profile_form.is_valid():
-            user = user_form.save(commit=False) #add commit=False , and remember to save 
+            user = user_form.save() #add commit=False and save, refer to notes for details
             user.set_password(user.password)
-            user.save() 
+            user.save()
             profile = profile_form.save(commit=False)
             profile.user=user
             profile.save()
@@ -55,7 +55,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('hello_world:dashboard')) #old is index, change to hellow_world:dashboard if we want to link to dashboard after login
             else:
                 return HttpResponse("Your account was inactive.")
         else:
@@ -67,7 +67,7 @@ def user_login(request):
 
 # READ
 def dashboard(request):
-    all_users = UserProfileInfo.objects.select_related('user') #select joined for all users
+    all_users = UserProfileInfo.objects.select_related('user')
     return render(request,'hello_world/dashboard.html',{'all_users':all_users})
 
 # # UPDATE
